@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import './main.css';
 
 export default function Main() {
@@ -50,7 +50,7 @@ export default function Main() {
     <div>
       <main>
         <h2>
-          Últimos <span>doadores</span>
+          Últimos <span>voluntários</span>
         </h2>
         <section className="donors">
           {donors.map(donor => {
