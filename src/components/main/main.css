@@ -1,0 +1,55 @@
+main {
+  text-align: center;
+  margin: 0 auto 70px;
+  width: 90%;
+  max-width: 500px;
+}
+
+main .donors {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+main h2 {
+  margin-bottom: 70px;
+}
+
+main h2 span {
+  color: var(--primary-color);
+}
+
+.blood {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.donor {
+  margin-bottom: 30px;
+  min-width: 150px;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  padding: 0.4em;
+  margin-right: 10px;
+}
+
+.donor p {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  main .donors {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 365px) {
+  main .donors {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

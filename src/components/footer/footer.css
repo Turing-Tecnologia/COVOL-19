@@ -1,0 +1,38 @@
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: auto;
+  padding: 2em 6em;
+  background: var(--dark-color);
+}
+footer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+footer ul li {
+  margin-bottom: 10px;
+}
+footer ul li a {
+  font-size: 14px;
+  padding: 0.4em 2em;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--light-color);
+  transition: 0.2s color ease-out;
+}
+footer ul li a:hover {
+  color: #fff;
+}
+.owner p {
+  color: #fff;
+  pointer-events: none;
+  user-select: none;
+}
+.owner span {
+  font-weight: bold;
+  color: var(--primary-color);
+  pointer-events: none;
+  user-select: none;
+}

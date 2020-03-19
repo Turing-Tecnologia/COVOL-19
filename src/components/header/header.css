@@ -1,0 +1,39 @@
+header {
+  text-align: center;
+  margin: 0 auto 70px;
+  width: 90%;
+  max-width: 500px;
+}
+
+header button {
+  margin-top: 16px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+header p {
+  margin-top: 14px;
+  font-size: 14px;
+}
+
+header h2 {
+  margin-bottom: 30px;
+  color: var(--primary-color);
+}
+
+header img {
+  max-width: 180px;
+  margin: 40px auto;
+  pointer-events: none;
+  user-select: none;
+}
+.text {
+  max-width: 90%;
+  margin: auto;
+  text-align: center;
+}
