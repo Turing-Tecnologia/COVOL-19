@@ -2,10 +2,13 @@ import React from 'react';
 import './header.css';
 
 export default function Header() {
-  function handleFormHide() {
+  function handleFormHideA() { //A = AJUDAR
     document.querySelector('.form').classList.toggle('hide');
   }
 
+  function handleFormHideP() { // P = PRECISAR
+    document.querySelector('.formA').classList.toggle('hideA');
+  }
   return (
     <div>
       <header>
@@ -23,8 +26,11 @@ export default function Header() {
             disponibilizando para ir realizar suas compras
           </p>
         </div>
-        <button type="submit" onClick={handleFormHide}>
+        <button type="submit" onClick={handleFormHideA}>
           Quero ser voluntário
+        </button>
+        <button type="submit" onClick={handleFormHideP}>
+          Preciso de ajuda
         </button>
       </header>
     </div>

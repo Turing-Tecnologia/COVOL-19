@@ -15,8 +15,13 @@ section.form {
   text-align: right;
   transition: all 300ms;
 }
-
+section.form p{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 1000;
+}
 section.form h2 {
+  margin-top: 15px;
   color: #ffffffee;
   font-size: 18px;
 }
