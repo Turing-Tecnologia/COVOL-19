@@ -1,3 +1,6 @@
+.footer-container svg {
+  display: block;
+}
 footer {
   display: flex;
   justify-content: space-around;
@@ -8,23 +11,33 @@ footer {
 }
 footer ul {
   list-style: none;
-  display: flex;
-  flex-direction: column;
+  margin-right: 50px;
 }
 footer ul li {
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 footer ul li a {
   font-size: 14px;
-  padding: 0.4em 2em;
+  letter-spacing: 0.5px;
+  padding: 0.4em 0.5em;
   cursor: pointer;
   text-decoration: none;
   color: var(--light-color);
   transition: 0.2s color ease-out;
 }
-footer ul li a:hover {
+ul li .icon {
+  font-size: 18px;
+  color: var(--light-color);
+  transition: 0.2s color ease-out;
+}
+
+ul li:hover > a,
+ul li:hover > .icon {
   color: #fff;
 }
+
 .owner p {
   color: #fff;
   pointer-events: none;
@@ -35,4 +48,11 @@ footer ul li a:hover {
   color: var(--primary-color);
   pointer-events: none;
   user-select: none;
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    padding: 2em 3em;
+    justify-content: center;
+  }
 }

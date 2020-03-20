@@ -13,12 +13,8 @@ export default function Header() {
         <h2>A sua ajuda é fundamental</h2>
         <div className="text">
           <p>
-            Pessoas a partir dos 60 anos de idade ou com problemas de saúde são
-            as mais prejudicadas
-          </p>
-          <p>
             Cerca de 80% dos mortos pelo COVID-19 são pessoas com 60 anos de
-            idade ou mais e 75% tinham doenças anteriores como diabetes,
+            idade ou mais e 75% já possuiam problemas de saúde como diabetes,
             hipertensão ou problemas cardíacos
           </p>
           <p>

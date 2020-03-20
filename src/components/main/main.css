@@ -5,20 +5,21 @@ main {
   max-width: 500px;
 }
 
-main .donors {
+main .volunteers {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
 main h2 {
   margin-bottom: 70px;
+  font-size: 35px;
 }
 
 main h2 span {
   color: var(--primary-color);
 }
 
-.blood {
+.number {
   color: var(--primary-color);
   font-weight: bold;
   font-size: 14px;
@@ -28,7 +29,7 @@ main h2 span {
   position: relative;
 }
 
-.donor {
+.voluntary {
   margin-bottom: 30px;
   min-width: 150px;
   border: 1px solid var(--primary-color);
@@ -37,18 +38,19 @@ main h2 span {
   margin-right: 10px;
 }
 
-.donor p {
+.voluntary p {
   font-size: 14px;
+  letter-spacing: 0.5px;
 }
 
 @media screen and (max-width: 768px) {
-  main .donors {
+  main .volunteers {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
 }
 @media screen and (max-width: 365px) {
-  main .donors {
+  main .volunteers {
     display: grid;
     grid-template-columns: 1fr;
   }

@@ -40,9 +40,13 @@ form button {
 
 form input::placeholder {
   color: #ffffffaa;
+  font-size: 12px;
+  letter-spacing: 0.5px;
 }
 
 form button {
+  padding: 10px 16px;
+  margin-top: 4px;
   font-weight: bold;
   background: #ffffffee;
   color: var(--primary-color);

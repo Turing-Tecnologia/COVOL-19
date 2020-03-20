@@ -2,49 +2,49 @@
 import './main.css';
 
 export default function Main() {
-  const [donors, setDonors] = useState([
+  // eslint-disable-next-line no-unused-vars
+  const [volunteers, setVolunteers] = useState([
     {
       id: 1,
+      name: 'Paulo',
+      city: 'Afonso Bezerra',
+      whatsapp: '(84) 9 9999-9999',
+    },
+    {
+      id: 2,
+      name: 'Sérgio',
+      city: 'Angicos',
+      whatsapp: '(84) 9 8888-8888',
+    },
+    {
+      id: 3,
       name: 'Emmanuel',
       city: 'Afonso Bezerra',
       whatsapp: '(84) 9 8853-2982',
     },
     {
-      id: 1,
-      name: 'Emmanuel',
-      city: 'Afonso Bezerra',
-      whatsapp: '(84) 9 8853-2982',
+      id: 4,
+      name: 'Marta',
+      city: 'Assu',
+      whatsapp: '(84) 9 5555-5555',
     },
     {
-      id: 1,
-      name: 'Emmanuel',
-      city: 'Afonso Bezerra',
-      whatsapp: '(84) 9 8853-2982',
+      id: 5,
+      name: 'Marcela',
+      city: 'Carnaubais',
+      whatsapp: '(84) 9 3333-3333',
     },
     {
-      id: 1,
-      name: 'Emmanuel',
-      city: 'Afonso Bezerra',
-      whatsapp: '(84) 9 8853-2982',
-    },
-    {
-      id: 1,
-      name: 'Emmanuel',
-      city: 'Afonso Bezerra',
-      whatsapp: '(84) 9 8853-2982',
-    },
-    {
-      id: 1,
-      name: 'Emmanuel',
-      city: 'Afonso Bezerra',
-      whatsapp: '(84) 9 8853-2982',
+      id: 6,
+      name: 'Marcelo',
+      city: 'Pendências',
+      whatsapp: '(84) 9 2222-2222',
     },
   ]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/').then(response => response.json());
-    setDonors(donors);
-  }, [donors]);
+    /** set data from api */
+  }, []);
 
   return (
     <div>
@@ -52,13 +52,13 @@ export default function Main() {
         <h2>
           Últimos <span>voluntários</span>
         </h2>
-        <section className="donors">
-          {donors.map(donor => {
+        <section className="volunteers">
+          {volunteers.map(voluntary => {
             return (
-              <div key={donor.id} className="donor">
-                <p>{donor.name}</p>
-                <p>{donor.city}</p>
-                <div className="blood">{donor.whatsapp}</div>
+              <div key={voluntary.id} className="voluntary">
+                <p>{voluntary.name}</p>
+                <p>{voluntary.city}</p>
+                <div className="number">{voluntary.whatsapp}</div>
               </div>
             );
           })}

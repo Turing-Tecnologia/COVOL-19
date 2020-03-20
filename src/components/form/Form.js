@@ -9,7 +9,7 @@ export default function Form() {
         <form action="/" method="POST">
           <input type="text" required name="name" placeholder="Nome" />
           <input type="text" required name="text" placeholder="Cidade" />
-          <input type="tel" required name="whatsapp" placeholder="Whatsapp" />
+          <input type="text" required name="whatsapp" placeholder="Whatsapp" />
           <button type="submit">Quero ser voluntário</button>
         </form>
       </section>
