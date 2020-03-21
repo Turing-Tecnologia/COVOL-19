@@ -1,27 +1,56 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-console */
 import React, { useState } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 import { cepMask, WhatsappMask } from './mask';
 import Button from '../Button';
 import './form.css';
 
 export default function Form() {
-  const [cep, setCep] = useState();
-  const [city, setCity] = useState();
-  const [whatsapp, setWhatsapp] = useState();
   const [check, setCheck] = useState(true);
+  const [novoVoluntario, setNovoVoluntario] = useState({
+    bairro: '',
+    cep: '',
+    cidade: '',
+    contato: '',
+    localidade: '',
+    nome: '',
+    uf: '',
+  });
 
   async function validadeCep() {
-    if (cep.length >= 8) {
-      const cepvalidate = await Axios.get(
-        `https://viacep.com.br/ws/${cep}/json/`
+    if (novoVoluntario.cep.length >= 8) {
+      const cepvalidate = await axios.get(
+        `https://viacep.com.br/ws/${novoVoluntario.cep}/json/`
       );
-      setCity(cepvalidate.data.localidade);
+      // prencher os outros valores
+      setNovoVoluntario({
+        cidade: cepvalidate.data.localidade,
+        uf: 'pegar da res de localizacao',
+        bairro: 'pegar da res de localizacao',
+      });
       setCheck(true);
     } else {
-      setCep('');
+      setNovoVoluntario({ cidade: '' });
       setCheck(false);
     }
   }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    axios
+      .post(
+        'http://apirest-covol19.herokuapp.com/voluntariarse/voluntarios',
+        novoVoluntario
+      )
+      .then(res => {
+        console.log(res.status);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   return (
     <div>
       <section className="form hide">
@@ -36,15 +65,20 @@ export default function Form() {
             required
             maxLength="8"
             name="cep"
-            value={cep}
-            onChange={event => setCep(cepMask(event.target.value))}
+            value={novoVoluntario.cep}
+            onChange={event =>
+              setNovoVoluntario({ cep: cepMask(event.target.value) })
+            }
             placeholder="Cep"
           />
           <input
             type="text"
             required
-            name="text"
-            value={city}
+            name="cidade"
+            value={novoVoluntario.cidade}
+            onChange={event =>
+              setNovoVoluntario({ cidade: event.target.value })
+            }
             onFocus={validadeCep}
             placeholder="Cidade"
           />
@@ -53,11 +87,15 @@ export default function Form() {
             required
             maxLength="15"
             name="whatsapp"
-            value={whatsapp}
-            onChange={event => setWhatsapp(WhatsappMask(event.target.value))}
+            value={novoVoluntario.contato}
+            onChange={event =>
+              setNovoVoluntario({ contato: WhatsappMask(event.target.value) })
+            }
             placeholder="Whatsapp"
           />
-          <Button>Quero ser voluntário</Button>
+          <Button type="submit" onClick={handleSubmit}>
+            Quero ser voluntário
+          </Button>
         </form>
       </section>
     </div>

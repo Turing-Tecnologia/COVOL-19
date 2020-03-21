@@ -1,6 +1,6 @@
 ﻿/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 import './main.css';
 
 export default function Main({ volunteers }) {
@@ -16,7 +16,7 @@ export default function Main({ volunteers }) {
     async function success(pos) {
       const crd = pos.coords;
 
-      const response = await Axios.get(
+      const response = await axios.get(
         `https://nominatim.openstreetmap.org/reverse?format=json&lat=${crd.latitude}&lon=${crd.longitude}`
       );
       setCity(response.data.address.city_district);
@@ -44,10 +44,10 @@ export default function Main({ volunteers }) {
         <section className="volunteers">
           {volunteers.map(voluntary => {
             return (
-              <div key={voluntary.id} className="voluntary">
-                <p>{voluntary.name}</p>
-                <p>{voluntary.city}</p>
-                <div className="number">{voluntary.whatsapp}</div>
+              <div key={voluntary.id_voluntario} className="voluntary">
+                <p>{voluntary.nome}</p>
+                <p>{voluntary.cidade}</p>
+                <div className="number">{voluntary.contato}</div>
               </div>
             );
           })}

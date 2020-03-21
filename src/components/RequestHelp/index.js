@@ -11,8 +11,8 @@ export default function RequestHelp({ volunteers }) {
         <form action="/" method="GET">
           <select name="select">
             {volunteers.map(options => (
-              <option key={options.id} value={options.city}>
-                {options.city}
+              <option key={options.id_voluntario} value={options.cidade}>
+                {options.cidade}
               </option>
             ))}
           </select>
