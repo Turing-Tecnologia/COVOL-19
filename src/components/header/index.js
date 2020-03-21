@@ -2,11 +2,13 @@ import React from 'react';
 import './header.css';
 
 export default function Header() {
-  function handleFormHideA() { //A = AJUDAR
+  function handleFormHideA() {
+    // A = AJUDAR
     document.querySelector('.form').classList.toggle('hide');
   }
 
-  function handleFormHideP() { // P = PRECISAR
+  function handleFormHideP() {
+    // P = PRECISAR
     document.querySelector('.formA').classList.toggle('hideA');
   }
   return (

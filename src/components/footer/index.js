@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { FaGithub, FaInstagram, FaGlobe } from 'react-icons/fa';
 import './footer.css';
 
-export default function Footer() {
+export default function Footer({ volunteers }) {
   return (
     <div className="footer-container">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -41,6 +42,9 @@ export default function Footer() {
         <div className="owner">
           <p>
             Developed by <span>Turing Tecnologia</span>
+          </p>
+          <p>
+            Contagem de voluntários inscritos: <span>{volunteers.length}</span>
           </p>
         </div>
       </footer>
