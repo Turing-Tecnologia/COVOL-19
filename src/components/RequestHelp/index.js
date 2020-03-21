@@ -46,8 +46,7 @@ export default function RequestHelp() {
                 <h2>Preciso de Ajuda</h2>
                 <form action="/" method="POST">
                     <select name="select">
-                        {volunteers.map(options => <option key={options} value={options.city}>{options.city}</option>)}
-                        
+                        {volunteers.map(options => <option key={options.id} value={options.city}>{options.city}</option>)}
                     </select>
                     <button type="submit">Listar voluntários</button>
                 </form>
