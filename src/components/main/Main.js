@@ -1,8 +1,12 @@
 ﻿import React, { useState, useEffect } from 'react';
+import Geolocation from "react-geolocation";
+import Axios from 'axios'
 import './main.css';
+
 
 export default function Main() {
   // eslint-disable-next-line no-unused-vars
+  const [city, setCity] = useState()
   const [volunteers, setVolunteers] = useState([
     {
       id: 1,
@@ -42,15 +46,38 @@ export default function Main() {
     },
   ]);
 
+  function localization() {
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+
+    async function success(pos) {
+      var crd = pos.coords;
+
+      const response = await Axios.get(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${crd.latitude}&lon=${crd.longitude}`)
+      setCity(response.data.address.city_district)
+    };
+
+    function error(err) {
+      console.warn('ERROR(' + err.code + '): ' + err.message);
+    };
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
+  }
+  
+
   useEffect(() => {
-    /** set data from api */
+    localization()
+
   }, []);
 
   return (
     <div>
       <main>
         <h2>
-          Últimos <span>voluntários</span>
+          Últimos <span>voluntários de {city}</span>
         </h2>
         <section className="volunteers">
           {volunteers.map(voluntary => {
