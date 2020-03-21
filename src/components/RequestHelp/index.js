@@ -1,13 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import './style.css';
+import Button from '../Button';
+import './help.css';
 
 export default function RequestHelp({ volunteers }) {
   return (
     <div>
       <section className="formA hideA">
         <h2>Preciso de Ajuda</h2>
-        <form action="/" method="POST">
+        <form action="/" method="GET">
           <select name="select">
             {volunteers.map(options => (
               <option key={options.id} value={options.city}>
@@ -15,7 +16,7 @@ export default function RequestHelp({ volunteers }) {
               </option>
             ))}
           </select>
-          <button type="submit">Listar voluntários</button>
+          <Button>Listar voluntários</Button>
         </form>
       </section>
     </div>

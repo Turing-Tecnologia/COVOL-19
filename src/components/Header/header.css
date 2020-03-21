@@ -4,21 +4,26 @@ header {
   width: 90%;
   max-width: 500px;
 }
-
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 header button {
+  max-width: 200px;
   margin-top: 16px;
   margin-left: 10px;
-  padding: 10px 16px;
+  padding: 10px 14px;
   border-radius: 4px;
   background: var(--primary-color);
   color: #fff;
   border: none;
   font-weight: bold;
   cursor: pointer;
-  transition: transform .2s; /* Animation */
+  transition: transform 0.2s;
 }
-header button:hover{
-  transform: scale(1.06)
+header button:hover {
+  transform: scale(1.06);
 }
 
 header p {
@@ -43,4 +48,12 @@ header img {
   max-width: 90%;
   margin: auto;
   text-align: center;
+}
+@media (max-width: 768px) {
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

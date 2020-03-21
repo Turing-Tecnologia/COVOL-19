@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { cepMask, WhatsappMask } from './mask';
+import Button from '../Button';
 import './form.css';
 
 export default function Form() {
@@ -28,7 +29,7 @@ export default function Form() {
           {!check ? <p>Cep Inválido</p> : <p />}
           <h2>Entrar na lista de voluntários</h2>
         </div>
-        <form action="/" onSubmit="" method="POST">
+        <form action="/" method="POST">
           <input type="text" required name="name" placeholder="Nome" />
           <input
             type="text"
@@ -56,7 +57,7 @@ export default function Form() {
             onChange={event => setWhatsapp(WhatsappMask(event.target.value))}
             placeholder="Whatsapp"
           />
-          <button type="submit">Quero ser voluntário</button>
+          <Button>Quero ser voluntário</Button>
         </form>
       </section>
     </div>

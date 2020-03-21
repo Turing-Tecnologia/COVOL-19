@@ -4,12 +4,17 @@ import './header.css';
 export default function Header() {
   function handleFormHideA() {
     // A = AJUDAR
-    document.querySelector('.form').classList.toggle('hide');
+    document.querySelector('.formA').classList.add('hideA');
+    setTimeout(() => {
+      document.querySelector('.form').classList.toggle('hide');
+    }, 200);
   }
-
   function handleFormHideP() {
     // P = PRECISAR
-    document.querySelector('.formA').classList.toggle('hideA');
+    document.querySelector('.form').classList.add('hide');
+    setTimeout(() => {
+      document.querySelector('.formA').classList.toggle('hideA');
+    }, 200);
   }
   return (
     <div>
@@ -28,12 +33,14 @@ export default function Header() {
             disponibilizando para ir realizar suas compras
           </p>
         </div>
-        <button type="submit" onClick={handleFormHideA}>
-          Quero ser voluntário
-        </button>
-        <button type="submit" onClick={handleFormHideP}>
-          Preciso de ajuda
-        </button>
+        <div className="buttons">
+          <button type="submit" onClick={handleFormHideA}>
+            Quero ser voluntário
+          </button>
+          <button type="submit" onClick={handleFormHideP}>
+            Preciso de ajuda
+          </button>
+        </div>
       </header>
     </div>
   );
