@@ -12,7 +12,7 @@ function App() {
 
   async function getVoluntarios() {
     const res = await axios.get(
-      'http://apirest-covol19.herokuapp.com/voluntariarse/voluntarios'
+      'https://apirest-covol19.herokuapp.com/voluntariarse/voluntarios'
     );
     // eslint-disable-next-line no-console
     console.log(res.data);

@@ -40,7 +40,7 @@ export default function Form() {
     event.preventDefault();
     axios
       .post(
-        'http://apirest-covol19.herokuapp.com/voluntariarse/voluntarios',
+        'https://apirest-covol19.herokuapp.com/voluntariarse/voluntario',
         novoVoluntario
       )
       .then(res => {
