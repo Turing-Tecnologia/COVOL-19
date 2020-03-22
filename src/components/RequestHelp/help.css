@@ -17,7 +17,8 @@ section.formA {
 }
 
 section.formA h2 {
-  color: #ffffffee;
+  margin: 10px 0 15px;
+  color: #fff;
   font-size: 18px;
 }
 
@@ -40,8 +41,22 @@ form select {
 }
 
 @media screen and (max-width: 768px) {
-  section.form {
-    grid-template-columns: 1fr 2fr;
+  section.formA {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 40px 20px;
+  }
+  form input {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px 16px;
+    border-radius: 4px;
+    border: 1px solid #ffffff88;
+    color: #fff;
+  }
+  button {
+    font-size: 12px;
   }
 }

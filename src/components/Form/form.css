@@ -5,8 +5,9 @@
 }
 
 section.form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 45px;
   align-items: center;
   background-color: var(--primary-color);
   padding: 20px 50px;
@@ -37,10 +38,10 @@ section.form.hide {
 
 form input {
   width: 100%;
-  margin-bottom: 15px;
-  padding: 10px 16px;
+  margin-bottom: 4px;
+  padding: 8px 16px;
   border-radius: 4px;
-  border: 1px solid #ddd;
+  border: 1px solid #ffffff88;
   color: #fff;
 }
 
@@ -61,8 +62,19 @@ form input {
 
 @media screen and (max-width: 768px) {
   section.form {
-    grid-template-columns: 1fr 2fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 40px 20px;
+  }
+  form input {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px 16px;
+    border-radius: 4px;
+    border: 1px solid #ffffff88;
+    color: #fff;
   }
   .form button {
     font-size: 12px;
