@@ -3,5 +3,9 @@ import React from 'react';
 import './button.css';
 
 export default function Button({ children }) {
-  return <button type="submit">{children}</button>;
+  return (
+    <button className="styled-button" type="submit">
+      {children}
+    </button>
+  );
 }
