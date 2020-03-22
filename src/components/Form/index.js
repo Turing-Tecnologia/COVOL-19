@@ -56,7 +56,12 @@ export default function Form() {
         <div>
           <h2>Entrar na lista de voluntários</h2>
         </div>
-        <form action="/" method="POST">
+        <form
+          action="."
+          method="POST"
+          data-netlify="true"
+          name="novovoluntario"
+        >
           <div>
             <input
               type="text"
