@@ -57,10 +57,7 @@ export default function Form() {
           <h2>Entrar na lista de voluntários</h2>
         </div>
         <form
-          action="."
-          method="POST"
-          data-netlify="true"
-          name="novovoluntario"
+          onSubmit={handleSubmit}
         >
           <div>
             <input
@@ -104,7 +101,7 @@ export default function Form() {
               placeholder="Cidade"
             />
           </div>
-          <Button type="submit" onClick={handleSubmit}>
+          <Button type="submit">
             Quero ser voluntário
           </Button>
         </form>
