@@ -39,6 +39,11 @@ form select {
   background: var(--primary-color);
   cursor: pointer;
 }
+form .cep-container {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
 
 @media screen and (max-width: 768px) {
   section.formA {

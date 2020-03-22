@@ -3,12 +3,14 @@ import React, { useState, useEffect } from 'react';
 import './main.css';
 
 export default function Main({ volunteers }) {
-  return (
+  
+  if(volunteers.length > 0){
+    return (
     <div>
       <main>
         <h2>
-          Últimos voluntários em <br />
-         <span>{volunteers[0].cidade}</span>
+          Últimos voluntários <br />
+         <span>{'em '+ volunteers[0].cidade}</span>
         </h2>
         <section className="volunteers">
           {volunteers.map(voluntary => {
@@ -24,4 +26,16 @@ export default function Main({ volunteers }) {
       </main>
     </div>
   );
+  }
+  return (
+    <div>
+      <main>
+        <h2>
+          Últimos <span>voluntários</span></h2>
+        <h1>Nenhum Voluntario Da Sua Cidade Cadastrado Ainda!</h1>
+      </main>
+    </div>
+    
+  )
+  
 }
