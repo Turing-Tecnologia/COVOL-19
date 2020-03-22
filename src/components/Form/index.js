@@ -19,7 +19,7 @@ export default function Form() {
   });
 
   async function validadeCep() {
-    if (novoVoluntario.cep.length >= 8) {
+    if (novoVoluntario.cep && novoVoluntario.cep.length >= 8) {
       const cepvalidate = await axios.get(
         `https://viacep.com.br/ws/${novoVoluntario.cep}/json/`
       );
@@ -55,44 +55,50 @@ export default function Form() {
     <div>
       <section className="form hide">
         <div>
-          {!check ? <p>Cep Inválido</p> : <p />}
           <h2>Entrar na lista de voluntários</h2>
         </div>
         <form action="/" method="POST">
-          <input type="text" required name="name" placeholder="Nome" />
-          <input
-            type="text"
-            required
-            maxLength="8"
-            name="cep"
-            value={novoVoluntario.cep}
-            onChange={event =>
-              setNovoVoluntario({ cep: cepMask(event.target.value) })
-            }
-            placeholder="Cep"
-          />
-          <input
-            type="text"
-            required
-            name="cidade"
-            value={novoVoluntario.cidade}
-            onChange={event =>
-              setNovoVoluntario({ cidade: event.target.value })
-            }
-            onFocus={validadeCep}
-            placeholder="Cidade"
-          />
-          <input
-            type="text"
-            required
-            maxLength="15"
-            name="whatsapp"
-            value={novoVoluntario.contato}
-            onChange={event =>
-              setNovoVoluntario({ contato: WhatsappMask(event.target.value) })
-            }
-            placeholder="Whatsapp"
-          />
+          <div>
+            <input type="text" required name="name" placeholder="Nome" />
+            <input
+              type="text"
+              required
+              maxLength="15"
+              name="whatsapp"
+              value={novoVoluntario.contato}
+              onChange={event =>
+                setNovoVoluntario({ contato: WhatsappMask(event.target.value) })
+              }
+              placeholder="Whatsapp"
+            />
+          </div>
+          <div>
+            <div className="cep-container">
+              {!check ? <p>Cep Inválido</p> : <p />}
+              <input
+                type="text"
+                required
+                maxLength="8"
+                name="cep"
+                value={novoVoluntario.cep}
+                onChange={event =>
+                  setNovoVoluntario({ cep: cepMask(event.target.value) })
+                }
+                placeholder="Cep"
+              />
+            </div>
+            <input
+              type="text"
+              required
+              name="cidade"
+              value={novoVoluntario.cidade}
+              onChange={event =>
+                setNovoVoluntario({ cidade: event.target.value })
+              }
+              onFocus={validadeCep}
+              placeholder="Cidade"
+            />
+          </div>
           <Button type="submit" onClick={handleSubmit}>
             Quero ser voluntário
           </Button>

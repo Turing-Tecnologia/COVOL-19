@@ -5,9 +5,8 @@
 }
 
 section.form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 45px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   background-color: var(--primary-color);
   padding: 20px 50px;
@@ -17,12 +16,15 @@ section.form {
 }
 section.form p {
   color: #fff;
-  font-size: 20px;
-  font-weight: 1000;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-self: flex-start;
+  margin-bottom: 4px;
 }
 section.form h2 {
-  margin-top: 15px;
-  color: #ffffffee;
+  margin: 10px 0 15px;
+  color: #fff;
   font-size: 18px;
 }
 
@@ -35,15 +37,20 @@ section.form.hide {
 
 form input {
   width: 100%;
-  margin-bottom: 4px;
-  padding: 8px 16px;
+  margin-bottom: 15px;
+  padding: 10px 16px;
   border-radius: 4px;
-  border: 1px solid #ffffff88;
+  border: 1px solid #ddd;
   color: #fff;
 }
 
+form .cep-container {
+  display: flex;
+  flex-direction: column;
+}
+
 form input::placeholder {
-  color: #ffffffaa;
+  color: #eee;
   font-size: 12px;
   letter-spacing: 0.5px;
 }
