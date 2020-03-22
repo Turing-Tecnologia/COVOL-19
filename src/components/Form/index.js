@@ -8,34 +8,32 @@ import './form.css';
 
 export default function Form() {
   const [check, setCheck] = useState(true);
-  const [novoVoluntario, setNovoVoluntario] = useState({
-    bairro: '',
-    cep: '',
-    cidade: '',
-    contato: '',
-    localidade: '',
-    nome: '',
-    uf: '',
-  });
+  const [bairro, setBairro] = useState('')
+  const [cep, setCep] = useState('')
+  const [contato, setContato] = useState('')
+  const [localidade,setLocalidade] = useState('')
+  const [cidade, setCidade] = useState('')
+  const [nome, setNome] = useState('')
+  const [uf, setUf] = useState('')
+  
 
   async function validadeCep() {
     if (novoVoluntario.cep && novoVoluntario.cep.length >= 8) {
       const cepvalidate = await axios.get(
         `https://viacep.com.br/ws/${novoVoluntario.cep}/json/`
       );
-      // prencher os outros valores
-      setNovoVoluntario({
-        cidade: cepvalidate.data.localidade,
-        uf: 'pegar da res de localizacao',
-        bairro: 'pegar da res de localizacao',
-      });
+      setLocalidade(response.data.localidade)
+      setCidade(response.data.localidade)
+      setUf(response.data.uf)
+      setBairro(response.data.bairro)
       setCheck(true);
     } else {
-      setNovoVoluntario({ cidade: '' });
+      setLocalidade('');
       setCheck(false);
     }
   }
 
+<<<<<<< HEAD
   async function handleSubmit(event) {
     event.preventDefault();
     axios
@@ -50,6 +48,23 @@ export default function Form() {
         console.log(err);
       });
   }
+=======
+   async function handleSubmit(event) {
+      event.preventDefault();
+      const data = {
+        bairro,
+        cep,
+        cidade,
+        contato,
+        localidade,
+        nome,
+        uf
+      }
+      console.log(data)
+      await axios.post('https://apirest-covol19.herokuapp.com/voluntariarse/voluntario',data)
+      window.location.reload()
+   }
+>>>>>>> 86be46fdb8eab7c1d7a4146180995ffe6ed1fa87
 
   return (
     <div>
