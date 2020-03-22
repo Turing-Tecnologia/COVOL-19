@@ -8,48 +8,46 @@ import './form.css';
 
 export default function Form() {
   const [check, setCheck] = useState(true);
-  const [novoVoluntario, setNovoVoluntario] = useState({
-    bairro: '',
-    cep: '',
-    cidade: '',
-    contato: '',
-    localidade: '',
-    nome: '',
-    uf: '',
-  });
+  const [bairro, setBairro] = useState('')
+  const [cep, setCep] = useState('')
+  const [contato, setContato] = useState('')
+  const [localidade,setLocalidade] = useState('')
+  const [cidade, setCidade] = useState('')
+  const [nome, setNome] = useState('')
+  const [uf, setUf] = useState('')
+  
 
   async function validadeCep() {
-    if (novoVoluntario.cep.length >= 8) {
-      const cepvalidate = await axios.get(
-        `https://viacep.com.br/ws/${novoVoluntario.cep}/json/`
+    if (cep.length >= 8) {
+      const response = await axios.get(
+        `https:viacep.com.br/ws/${cep}/json/`
       );
-      // prencher os outros valores
-      setNovoVoluntario({
-        cidade: cepvalidate.data.localidade,
-        uf: 'pegar da res de localizacao',
-        bairro: 'pegar da res de localizacao',
-      });
+      setLocalidade(response.data.localidade)
+      setCidade(response.data.localidade)
+      setUf(response.data.uf)
+      setBairro(response.data.bairro)
       setCheck(true);
     } else {
-      setNovoVoluntario({ cidade: '' });
+      setLocalidade('');
       setCheck(false);
     }
   }
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    axios
-      .post(
-        'http://apirest-covol19.herokuapp.com/voluntariarse/voluntarios',
-        novoVoluntario
-      )
-      .then(res => {
-        console.log(res.status);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
+   async function handleSubmit(event) {
+      event.preventDefault();
+      const data = {
+        bairro,
+        cep,
+        cidade,
+        contato,
+        localidade,
+        nome,
+        uf
+      }
+      console.log(data)
+      await axios.post('https://apirest-covol19.herokuapp.com/voluntariarse/voluntario',data)
+      window.location.reload()
+   }
 
   return (
     <div>
@@ -58,16 +56,23 @@ export default function Form() {
           {!check ? <p>Cep Inválido</p> : <p />}
           <h2>Entrar na lista de voluntários</h2>
         </div>
-        <form action="/" method="POST">
-          <input type="text" required name="name" placeholder="Nome" />
+        <form onSubmit={handleSubmit}>
+          <input 
+            type="text"
+            required 
+            name="name"
+            value={nome}
+            onChange={event => setNome(event.target.value)} 
+            placeholder="Nome" 
+            />
           <input
             type="text"
             required
             maxLength="8"
             name="cep"
-            value={novoVoluntario.cep}
+            value={cep}
             onChange={event =>
-              setNovoVoluntario({ cep: cepMask(event.target.value) })
+              setCep(cepMask(event.target.value))
             }
             placeholder="Cep"
           />
@@ -75,9 +80,9 @@ export default function Form() {
             type="text"
             required
             name="cidade"
-            value={novoVoluntario.cidade}
+            value={localidade}
             onChange={event =>
-              setNovoVoluntario({ cidade: event.target.value })
+              setLocalidade(event.target.value )
             }
             onFocus={validadeCep}
             placeholder="Cidade"
@@ -87,13 +92,13 @@ export default function Form() {
             required
             maxLength="15"
             name="whatsapp"
-            value={novoVoluntario.contato}
+            value={contato}
             onChange={event =>
-              setNovoVoluntario({ contato: WhatsappMask(event.target.value) })
+              setContato(WhatsappMask(event.target.value))
             }
             placeholder="Whatsapp"
           />
-          <Button type="submit" onClick={handleSubmit}>
+          <Button type="submit">
             Quero ser voluntário
           </Button>
         </form>

@@ -15,7 +15,7 @@ function App() {
       'http://apirest-covol19.herokuapp.com/voluntariarse/voluntarios'
     );
     // eslint-disable-next-line no-console
-    console.log(res.data);
+    // console.log(res.data);
     setVolunteers(res.data);
   }
 
