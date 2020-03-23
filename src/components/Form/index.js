@@ -56,9 +56,7 @@ export default function Form() {
         <div>
           <h2>Entrar na lista de voluntários</h2>
         </div>
-        <form
-          onSubmit={handleSubmit}
-        >
+        <form onSubmit={handleSubmit}>
           <div>
             <input
               type="text"
@@ -101,9 +99,7 @@ export default function Form() {
               placeholder="Cidade"
             />
           </div>
-          <Button type="submit">
-            Quero ser voluntário
-          </Button>
+          <Button type="submit">Quero ser voluntário</Button>
         </form>
       </section>
     </div>

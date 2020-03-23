@@ -43,11 +43,40 @@ export default function Footer({ volunteers }) {
           <p>
             Developed by <span>Turing Tecnologia</span>
           </p>
-          <p>
-            Contagem de voluntários inscritos: <span>{volunteers.length}</span>
-          </p>
+          {volunteers[0].cidade !== undefined ? (
+            <p>
+              Em <span> {volunteers[0].cidade}</span> já somos <br />
+              <span> {volunteers[0].length}</span>
+              voluntários
+            </p>
+          ) : (
+            <p>
+              Contagem total de voluntários:
+              <span> {volunteers.length}</span>
+            </p>
+          )}
         </div>
       </footer>
     </div>
   );
 }
+
+/*
+trocar o footer para exibir a quantidade de usuários na localização
+<div className="owner">
+          <p>
+            Developed by <span>Turing Tecnologia</span>
+          </p>
+          {volunteers[0].cidade !== undefined ? (
+            <p>
+              Contagem de inscritos em {volunteers[0].cidade}:
+              <span> {volunteers[0].length}</span>
+            </p>
+          ) : (
+            <p>
+              Contagem total de voluntários:
+              <span> {volunteers.length}</span>
+            </p>
+          )}
+        </div>
+*/
