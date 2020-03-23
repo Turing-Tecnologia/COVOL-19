@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-console */
 import React, { useState } from 'react';
@@ -46,6 +47,9 @@ export default function Form() {
     await axios.post(
       'https://apirest-covol19.herokuapp.com/voluntariarse/voluntario',
       data
+    );
+    alert(
+      `Obrigado ${data.nome}, você está na lista de voluntários de sua cidade agora`
     );
     window.location.reload();
   }

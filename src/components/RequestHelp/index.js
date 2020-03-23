@@ -44,24 +44,23 @@ export default function RequestHelp() {
 
     async function success(pos) {
       const crd = pos.coords;
-      try{
-      const response = await axios.get(
-        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${crd.latitude}&lon=${crd.longitude}`
-      );
-      // console.log(response.data) descomenta pra "Debugar" e entender se o fluxo ta seguindo
-        try{
+      try {
+        const response = await axios.get(
+          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${crd.latitude}&lon=${crd.longitude}`
+        );
+        // console.log(response.data) descomenta pra "Debugar" e entender se o fluxo ta seguindo
+        try {
           const responseVol = await axios.get(
             `https://apirest-covol19.herokuapp.com//voluntariarse/voluntarios/localidade/${response.data.address.city_district}`
           );
           setVolunteers(responseVol.data);
           // console.log(responseVol) descomenta pra "Debugar" e entender se o fluxo ta seguindo
-        }catch(errApi){
-          console.error('Deu Ruin na API', errApi)
+        } catch (errApi) {
+          console.error('Deu Ruin na API', errApi);
         }
-      }catch(errLoc){
-        console.error('Deu Ruim na Licalizarion',errLoc)
+      } catch (errLoc) {
+        console.error('Deu Ruim na Licalizarion', errLoc);
       }
-      
     }
     function error(err) {
       console.warn(`ERROR(${err.code}): ${err.message}`);

@@ -3,6 +3,7 @@ import React from 'react';
 import { FaGithub, FaInstagram, FaGlobe } from 'react-icons/fa';
 import './footer.css';
 
+// eslint-disable-next-line no-unused-vars
 export default function Footer({ volunteers }) {
   return (
     <div className="footer-container">
@@ -43,7 +44,7 @@ export default function Footer({ volunteers }) {
           <p>
             Developed by <span>Turing Tecnologia</span>
           </p>
-           {/*
+          {/*
           {volunteers[0].cidade !== undefined ? (
             <p>
               Contagem de inscritos em {volunteers[0].cidade}:
