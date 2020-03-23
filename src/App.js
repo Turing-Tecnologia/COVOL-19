@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from './components/Header';
 import Form from './components/Form';
-import Footer from './components/Footer';
+import Footer from './components/Footer/Footer';
 import RequestHelp from './components/RequestHelp';
 
 function App() {
@@ -51,7 +51,7 @@ function App() {
       <Header />
       <Form />
       <RequestHelp />
-      <Footer volunteers={volunteers} />
+      <Footer />
     </div>
   );
 }
