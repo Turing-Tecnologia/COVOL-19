@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-alert */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-console */
@@ -16,10 +17,10 @@ export default function Form() {
   const [cidade, setCidade] = useState('');
   const [nome, setNome] = useState('');
   const [uf, setUf] = useState('');
-  const [alerta, setAlerta] = useState('')
-  const [timeAlerta, setTimeAlerta] = useState(false)
-  const [classAlert, setClassAlert] = useState('sucess')
-  const [disableBtn, setDisableBtn] = useState(false)
+  const [alerta, setAlerta] = useState('');
+  const [timeAlerta, setTimeAlerta] = useState(false);
+  const [classAlert, setClassAlert] = useState('sucess');
+  const [disableBtn, setDisableBtn] = useState(false);
 
   async function validadeCep() {
     if (cep && cep.length >= 8) {
@@ -37,7 +38,7 @@ export default function Form() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    setDisableBtn(true)
+    setDisableBtn(true);
     const data = {
       bairro,
       cep,
@@ -47,32 +48,33 @@ export default function Form() {
       nome,
       uf,
     };
-    await axios.post(
-      'https://apirest-covol19.herokuapp.com/voluntariarse/voluntario',
-      data
-    ).then(response => {
-      setAlerta(
-        `Obrigado ${data.nome}, você está na lista de voluntários de sua cidade agora.`
-      );
-    }).catch(error => {
-      setAlerta(
-        `${data.nome}, não foi possível realizar o cadastro, tente novamente!`
-      );
-      setClassAlert('error')
-      setDisableBtn(false)
-    });
-    setTimeAlerta(true)
+    await axios
+      .post(
+        'https://apirest-covol19.herokuapp.com/voluntariarse/voluntario',
+        data
+      )
+      .then(response => {
+        setAlerta(
+          `Obrigado ${data.nome}, você está na lista de voluntários de sua cidade agora.`
+        );
+      })
+      .catch(error => {
+        setAlerta(
+          `${data.nome}, não foi possível realizar o cadastro, tente novamente!`
+        );
+        setClassAlert('error');
+        setDisableBtn(false);
+      });
+    setTimeAlerta(true);
   }
 
   function showAlerta() {
-
     setInterval(() => {
-      setTimeAlerta(false)
-      if (classAlert === 'sucess')
-        window.location.reload();
+      setTimeAlerta(false);
+      if (classAlert === 'sucess') window.location.reload();
     }, 3500);
 
-    return <div className={classAlert}>{alerta}</div>
+    return <div className={classAlert}>{alerta}</div>;
   }
 
   return (
@@ -94,6 +96,7 @@ export default function Form() {
             <input
               type="text"
               required
+              minLength="15"
               maxLength="15"
               name="whatsapp"
               value={contato}
@@ -108,6 +111,7 @@ export default function Form() {
                 type="text"
                 required
                 maxLength="8"
+                minLength="8"
                 name="cep"
                 value={cep}
                 onChange={event => setCep(cepMask(event.target.value))}
@@ -124,10 +128,12 @@ export default function Form() {
               placeholder="Cidade"
             />
           </div>
-          <Button disable={disableBtn} type="submit">Quero ser voluntário</Button>
+          <Button disable={disableBtn} type="submit">
+            Quero ser voluntário
+          </Button>
         </form>
       </section>
-      {(timeAlerta) ? showAlerta() : null}
+      {timeAlerta ? showAlerta() : null}
     </div>
   );
 }

@@ -56,10 +56,10 @@ export default function RequestHelp() {
           setVolunteers(responseVol.data);
           // console.log(responseVol) descomenta pra "Debugar" e entender se o fluxo ta seguindo
         } catch (errApi) {
-          console.error('Deu Ruin na API', errApi);
+          console.error('Erro na API', errApi);
         }
       } catch (errLoc) {
-        console.error('Deu Ruim na Licalizarion', errLoc);
+        console.error('Erro na localização', errLoc);
       }
     }
     function error(err) {
