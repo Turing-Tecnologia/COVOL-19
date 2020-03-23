@@ -2,9 +2,10 @@
 import React from 'react';
 import './button.css';
 
-export default function Button({ children }) {
+export default function Button({ children, disable }) {
   return (
-    <button className="styled-button" type="submit">
+
+    <button disabled={disable} className="styled-button" type="submit">
       {children}
     </button>
   );

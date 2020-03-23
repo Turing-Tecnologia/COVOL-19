@@ -53,6 +53,38 @@ form input {
   background: transparent;
 }
 
+.sucess{
+  padding: 25px;
+	border: 1px solid gray;
+	border-radius: 3px; 
+	font-size: 18px;
+  border-color: #87c940;
+	color: #FFF;
+  background-color: #a0d468;
+  justify-content: center;
+  display: flex;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 14px;
+}
+
+.error{
+  padding: 25px;
+	border: 1px solid gray;
+	border-radius: 3px; 
+	font-size: 18px;
+  border-color: #e8273b;
+	color: #FFF;
+	background-color: #ed5565;
+  justify-content: center;
+  display: flex;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+}
+
 @media screen and (max-width: 768px) {
   section.form {
     display: flex;
