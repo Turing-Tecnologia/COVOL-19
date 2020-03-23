@@ -19,7 +19,7 @@ export default function Form() {
   async function validadeCep() {
     if (cep && cep.length >= 8) {
       const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
-      console.log(response.data);
+      // console.log(response.data);
       setLocalidade(response.data.localidade);
       setCidade(response.data.localidade);
       setUf(response.data.uf);
@@ -42,7 +42,7 @@ export default function Form() {
       nome,
       uf,
     };
-    console.log(data);
+    // console.log(data);
     await axios.post(
       'https://apirest-covol19.herokuapp.com/voluntariarse/voluntario',
       data
