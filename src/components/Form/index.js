@@ -16,11 +16,14 @@ export default function Form() {
   const [cidade, setCidade] = useState('');
   const [nome, setNome] = useState('');
   const [uf, setUf] = useState('');
+  const [alerta, setAlerta] = useState('')
+  const [timeAlerta, setTimeAlerta] = useState(false)
+  const [classAlert, setClassAlert] = useState('sucess')
+  const [disableBtn, setDisableBtn] = useState(false)
 
   async function validadeCep() {
     if (cep && cep.length >= 8) {
       const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
-      // console.log(response.data);
       setLocalidade(response.data.localidade);
       setCidade(response.data.localidade);
       setUf(response.data.uf);
@@ -34,6 +37,7 @@ export default function Form() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setDisableBtn(true)
     const data = {
       bairro,
       cep,
@@ -43,15 +47,32 @@ export default function Form() {
       nome,
       uf,
     };
-    // console.log(data);
     await axios.post(
       'https://apirest-covol19.herokuapp.com/voluntariarse/voluntario',
       data
-    );
-    alert(
-      `Obrigado ${data.nome}, você está na lista de voluntários de sua cidade agora`
-    );
-    window.location.reload();
+    ).then(response => {
+      setAlerta(
+        `Obrigado ${data.nome}, você está na lista de voluntários de sua cidade agora.`
+      );
+    }).catch(error => {
+      setAlerta(
+        `${data.nome}, não foi possível realizar o cadastro, tente novamente!`
+      );
+      setClassAlert('error')
+      setDisableBtn(false)
+    });
+    setTimeAlerta(true)
+  }
+
+  function showAlerta() {
+
+    setInterval(() => {
+      setTimeAlerta(false)
+      if (classAlert === 'sucess')
+        window.location.reload();
+    }, 3500);
+
+    return <div className={classAlert}>{alerta}</div>
   }
 
   return (
@@ -103,9 +124,10 @@ export default function Form() {
               placeholder="Cidade"
             />
           </div>
-          <Button type="submit">Quero ser voluntário</Button>
+          <Button disable={disableBtn} type="submit">Quero ser voluntário</Button>
         </form>
       </section>
+      {(timeAlerta) ? showAlerta() : null}
     </div>
   );
 }
