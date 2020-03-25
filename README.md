@@ -28,6 +28,14 @@ Ativar a localização nos ajuda a filtrar os voluntários para sua região, lhe
 - Você aceita ter cuidados redobrados para não realizar contato físico com os idosos ou pessoas de risco, antes, durante ou depois de realizar o ato de ajuda.
 
 ### Colaboração :ballot_box_with_check:
-Se você deseja colaborar com o desenvolvimento do COVOL-19, ou tem alguma sugestão de mudança, sinta-se livre para abrir uma issue descrevendo sua sugestão.
+Se você deseja colaborar com o desenvolvimento do COVOL-19:
+- Faça um fork desse repositório;
+- Crie uma branch com a sua feature: `git checkout -b minha-feature`;
+- Faça commit das suas alterações: `git commit -m 'Minha nova feature'`;
+- Faça push para a sua branch: `git push origin minha-feature`.
+- Depois que o merge da sua pull request for feito, você pode deletar a sua branch.
+
+Caso tenha alguma sugestão de mudança, sinta-se livre para 
+abrir uma issue descrevendo sua sugestão.
 
 <p align="center">:loudspeaker: Ajude a divulgar esta iniciativa</p>
