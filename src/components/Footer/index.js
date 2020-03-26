@@ -43,7 +43,7 @@ export default function Footer({ volunteers }) {
           <p>
             Developed by <span>Turing Tecnologia</span>
           </p>
-          {volunteers.length !== 0 ? (
+          {volunteers.length > 1 ? (
             <p>
               Já somos <span> {volunteers.length}</span> voluntários em{' '}
               {volunteers[0].cidade}

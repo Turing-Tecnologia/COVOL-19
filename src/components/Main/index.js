@@ -4,11 +4,15 @@ import React, { useState, useEffect } from 'react';
 import './main.css';
 
 export default function Main({ volunteers }) {
+  useEffect(() => {
+    console.log(volunteers);
+  }, [volunteers]);
+
   if (volunteers.length > 0) {
     return (
       <div>
         <main>
-          {volunteers.length !== undefined ? (
+          {volunteers[0].cidade ? (
             <div>
               <h2>
                 Últimos voluntários em <br />
