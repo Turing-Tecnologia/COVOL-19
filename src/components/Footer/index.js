@@ -3,7 +3,6 @@ import React from 'react';
 import { FaGithub, FaInstagram, FaGlobe } from 'react-icons/fa';
 import './footer.css';
 
-// eslint-disable-next-line no-unused-vars
 export default function Footer({ volunteers }) {
   return (
     <div className="footer-container">
@@ -44,40 +43,16 @@ export default function Footer({ volunteers }) {
           <p>
             Developed by <span>Turing Tecnologia</span>
           </p>
-          {/*
-          {volunteers[0].cidade !== undefined ? (
+          {volunteers.length !== 0 ? (
             <p>
-              Contagem de inscritos em {volunteers[0].cidade}:
-              <span> {volunteers[0].length}</span>
+              Já somos <span> {volunteers.length}</span> voluntários em{' '}
+              {volunteers[0].cidade}
             </p>
           ) : (
-            <p>
-              Contagem total de voluntários:
-              <span> {volunteers.length}</span>
-            </p>
-          )} */}
+            <p />
+          )}
         </div>
       </footer>
     </div>
   );
 }
-
-/*
-trocar o footer para exibir a quantidade de usuários na localização
-<div className="owner">
-          <p>
-            Developed by <span>Turing Tecnologia</span>
-          </p>
-          {volunteers[0].cidade !== undefined ? (
-            <p>
-              Contagem de inscritos em {volunteers[0].cidade}:
-              <span> {volunteers[0].length}</span>
-            </p>
-          ) : (
-            <p>
-              Contagem total de voluntários:
-              <span> {volunteers.length}</span>
-            </p>
-          )}
-        </div>
-*/

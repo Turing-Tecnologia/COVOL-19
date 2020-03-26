@@ -1,10 +1,8 @@
-/* eslint-disable no-console */
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Button from '../Button';
 import Main from '../Main';
+import Footer from '../Footer';
 import { cepMask } from '../Form/mask';
 import './help.css';
 
@@ -30,7 +28,7 @@ export default function RequestHelp() {
       `https://apirest-covol19.herokuapp.com//voluntariarse/voluntarios/localidade/${cidade}`
     );
     setVolunteers(response.data);
-    // console.log(response.data.length);
+    // console.log(response.data);
     setCep('');
     setCidade('');
   }
@@ -84,6 +82,7 @@ export default function RequestHelp() {
                   type="text"
                   required
                   maxLength="8"
+                  minLength="8"
                   name="cep"
                   value={cep}
                   onChange={event => setCep(cepMask(event.target.value))}
@@ -105,6 +104,7 @@ export default function RequestHelp() {
         </section>
       </div>
       <Main volunteers={volunteers} />
+      <Footer volunteers={volunteers} />
     </>
   );
 }

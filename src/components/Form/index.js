@@ -1,7 +1,4 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-alert */
-/* eslint-disable react/prop-types */
-/* eslint-disable no-console */
 import React, { useState } from 'react';
 import axios from 'axios';
 import { cepMask, WhatsappMask } from './mask';

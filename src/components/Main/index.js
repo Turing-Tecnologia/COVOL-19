@@ -8,7 +8,7 @@ export default function Main({ volunteers }) {
     return (
       <div>
         <main>
-          {volunteers[0].cidade !== undefined ? (
+          {volunteers.length !== undefined ? (
             <div>
               <h2>
                 Últimos voluntários em <br />
