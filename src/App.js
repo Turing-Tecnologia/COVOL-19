@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Form from './components/Form';
 import Footer from './components/Footer/Footer';
 import RequestHelp from './components/RequestHelp';
+import About from './components/About';
 
 function App() {
   /* const [volunteers, setVolunteers] = useState([{}]);
@@ -54,6 +55,7 @@ function App() {
       <Header />
       <Form />
       <RequestHelp />
+      <About />
       <Footer />
     </div>
   );
