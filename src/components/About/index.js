@@ -40,7 +40,9 @@ export default function About() {
 
   return (
     <section className="about">
-      <h1>Conheça os Colaboradores</h1>
+      <h1>
+        Conheça os <span>Colaboradores</span>
+      </h1>
       <p id="about-subtitle">
         &ldquo;Ajudar o próximo é a melhor maneira de ajudar a si mesmo&rdquo;
       </p>

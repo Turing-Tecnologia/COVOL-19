@@ -1,13 +1,9 @@
-﻿/* eslint-disable no-unused-vars */
+﻿/* eslint-disable no-console */
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './main.css';
 
 export default function Main({ volunteers }) {
-  useEffect(() => {
-    console.log(volunteers);
-  }, [volunteers]);
-
   if (volunteers.length > 0) {
     return (
       <div>
