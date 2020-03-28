@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Button from '../Button';
 import Main from '../Main';
+import About from '../About';
 import Footer from '../Footer';
 import { cepMask } from '../Form/mask';
 import './help.css';
@@ -104,6 +105,7 @@ export default function RequestHelp() {
         </section>
       </div>
       <Main volunteers={volunteers} />
+      <About />
       <Footer volunteers={volunteers} />
     </>
   );

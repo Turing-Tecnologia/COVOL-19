@@ -1,0 +1,125 @@
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  flex: 1;
+  background: var(--primary-color);
+}
+
+.about h1 {
+  font-size: 35px;
+  color: #fff;
+  margin-top: 5%;
+  padding-bottom: 5%;
+  width: 90%;
+  text-align: center;
+}
+
+.about h2 {
+  width: 63.5%;
+  text-align: center;
+  color: #fff;
+  padding: .5% 0;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 4px;
+}
+
+.about p {
+  width: 60%;
+  text-align: center;
+  color: #fff;
+  padding-bottom: 3%;
+}
+
+#about-subtitle {
+  font-style: italic;
+}
+
+.about .contributors {
+  width: 65%;
+  margin: auto;
+  border-radius: 15px;
+  height: 100%;
+  padding: 1% 0 5%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+button.contributor-info {
+  margin: auto;
+  margin-bottom: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: .1s;
+  border: none;
+  height: auto;
+  border-radius: 5px;
+}
+
+.contributor-info:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  cursor: pointer;
+}
+
+.contributor-info p {
+  color: #fff;
+  width: 100%;
+  background: var(--primary-color);
+  padding: 3%;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.contributor-info img {
+  width: 20vw;
+  max-width: 20vw;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+@media screen and (max-width: 900px) {
+  .about h2 {
+    font-size: 16px;
+    width: 62.52%;
+    margin-bottom: .2%;
+  }
+
+  .about .contributors {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contributor-info img {
+    width: 30vw;
+    max-width: 30vw;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .about h2 {
+    font-size: 18px;
+    width: 65%;
+    margin-bottom: 2%;
+    padding: 1%;
+  }
+
+  .about .contributors {
+    grid-template-columns: 1fr;
+  }
+
+  button.contributor-info {
+    margin-bottom: 8%;
+  }
+
+  .contributor-info img {
+    width: 65vw;
+    max-width: 65vw;
+  }
+}
