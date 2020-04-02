@@ -29,18 +29,23 @@ export default function RequestHelp() {
     const response = await axios.get(
       `https://apirest-covol19.herokuapp.com//voluntariarse/voluntarios/localidade/${cidade}`
     );
-    const array = []
+    const array = [];
     response.data.map(item => {
-      if(item.nome !== "post-linkedin" && item.nome !== "Emmanuel" && item.nome !== "Robson" && item.nome !== "Teste" && item.nome !== "teste" && item.nome !== "string"){
-        array.push(item)
+      if (
+        item.nome !== 'post-linkedin' &&
+        item.nome !== 'Emmanuel' &&
+        item.nome !== 'Robson' &&
+        item.nome !== 'Teste' &&
+        item.nome !== 'teste' &&
+        item.nome !== 'string'
+      ) {
+        array.push(item);
       }
-    })    
+    });
     setVolunteers(array);
     setCep('');
     setCidade('');
   }
-
-  
 
   function localization() {
     const options = {
@@ -60,7 +65,20 @@ export default function RequestHelp() {
           const responseVol = await axios.get(
             `https://apirest-covol19.herokuapp.com//voluntariarse/voluntarios/localidade/${response.data.address.city_district}`
           );
-          setVolunteers(responseVol.data);
+          const array = [];
+          responseVol.data.map(item => {
+            if (
+              item.nome !== 'post-linkedin' &&
+              item.nome !== 'Emmanuel' &&
+              item.nome !== 'Robson' &&
+              item.nome !== 'Teste' &&
+              item.nome !== 'teste' &&
+              item.nome !== 'string'
+            ) {
+              array.push(item);
+            }
+          });
+          setVolunteers(array);
           // console.log(responseVol) descomenta pra "Debugar" e entender se o fluxo ta seguindo
         } catch (errApi) {
           console.error('Erro na API', errApi);
