@@ -29,11 +29,18 @@ export default function RequestHelp() {
     const response = await axios.get(
       `https://apirest-covol19.herokuapp.com//voluntariarse/voluntarios/localidade/${cidade}`
     );
-    setVolunteers(response.data);
-    // console.log(response.data);
+    const array = []
+    response.data.map(item => {
+      if(item.nome !== "post-linkedin" && item.nome !== "Emmanuel" && item.nome !== "Robson" && item.nome !== "Teste" && item.nome !== "teste" && item.nome !== "string"){
+        array.push(item)
+      }
+    })    
+    setVolunteers(array);
     setCep('');
     setCidade('');
   }
+
+  
 
   function localization() {
     const options = {
