@@ -119,6 +119,7 @@ export default function RequestHelp() {
               <input
                 type="text"
                 required
+                readOnly
                 name="cidade"
                 value={cidade}
                 onChange={event => setCidade(event.target.value)}
