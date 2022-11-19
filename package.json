@@ -13,7 +13,7 @@
     "react-dom": "^16.13.0",
     "react-geolocation": "^1.0.4",
     "react-icons": "^3.9.0",
-    "react-scripts": "3.4.0"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
